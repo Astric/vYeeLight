@@ -4,8 +4,8 @@ var udpClientPort = 1982;
 var multicastIp = '239.255.255.250';
 
 var bulb = {
-    rgb:1000000,
-    brightness:100,
+    rgb:12621823,
+    brightness:76,
     name:"Virtual Bulb",
     model:"color",
     location: "yeelight://" + myIp + ":" + tcpServerPort,
