@@ -49,19 +49,14 @@ var connectedClients = [];
 var net = require('net');
 var server = 
 net.createServer(function(sock) {
-    // We have a connection - a socket object is assigned to the connection automatically
     console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
     connectedClients.push(sock);
-    
-    // Add a 'data' event handler to this instance of socket
-    sock.on('data', function(data) {
 
+    sock.on('data', function(data) {
         console.log('DATA from' + sock.remoteAddress + ': ' + data);
         parseRequest(sock,data);
-
     });
 
-    // Add a 'close' event handler to this instance of socket
     sock.on('close', function(data) {
         var index = connectedClients.indexOf(sock);
         if (index > -1) {
