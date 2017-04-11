@@ -17,9 +17,8 @@ var bulb = {
     fw_ver:48,
     id:0x000000000539
 }
-//======= UDP client ===========
 
-
+//======= UDP listener ===========
 var dgram = require('dgram');
 
 var client = dgram.createSocket('udp4');
@@ -44,7 +43,6 @@ client.on('message', function (msg, remote) {
 });
 
 client.bind(udpClientPort);
-//============================
 
 //====== TCP Server ==========
 var connectedClients = [];
