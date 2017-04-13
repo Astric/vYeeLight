@@ -49,7 +49,7 @@ client.on('message', function (msg, remote) {
             "\r\nfw_ver: " + bulb.fw_ver +
             "\r\nsupport: get_prop set_default set_power toggle set_bright start_cf stop_cf set_scene cron_add cron_get cron_del set_ct_abx set_rgb set_hsv set_adjust set_music set_name\r\npower: " + bulb.power +
             "\r\nbright: " + bulb.brightness + "\r\ncolor_mode: " + bulb.color_mode + "\r\nct: " + bulb.ct + "\r\nrgb: " + bulb.rgb + "\r\nhue: 359\r\nsat: 100\r\nname: " + bulb.name + "\r\n");
-        client.send(message, 0, message.length, udpClientPort, multicastIp, function () {
+        client.send(message, 0, message.length, udpClientPort, remote.address, function () {
             console.log("Sent '" + message + "'");
         });
     }
